@@ -5,6 +5,7 @@ import (
 	"github.com/ilyakaznacheev/cleanenv"
 )
 
+// New create an empty Config and return it's pointer
 func New() *Config {
 	return &Config{}
 }
@@ -26,6 +27,7 @@ type Log struct {
 	Level string `env:"LOG_LEVEL" env-default:"INFO"`
 }
 
+// ParseConfig getting variables and put them to Config
 func (c *Config) ParseConfig() error {
 	if err := cleanenv.ReadEnv(c); err != nil {
 		return fmt.Errorf("failed to read env's :%w", err)
