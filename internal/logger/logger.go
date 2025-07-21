@@ -10,6 +10,7 @@ type Logger struct {
 	log *slog.Logger
 }
 
+// New receive one of logging levels name [DEBUG,INFO,WARN,ERROR] add returns Logger
 func New(level string) *Logger {
 	log := slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
 		Level: setLevel(level),
@@ -18,6 +19,7 @@ func New(level string) *Logger {
 	return &Logger{log: log}
 }
 
+// setLevel receive logging level name and return it numeric value as slog.Level
 func setLevel(level string) slog.Level {
 	switch level {
 	case "DEBUG":
@@ -58,6 +60,7 @@ func (l *Logger) Errorf(format string, args ...any) {
 	l.log.Error(fmt.Sprintf(format, args...))
 }
 
+// Fatalf print error and exit program with non-zero code
 func (l *Logger) Fatalf(format string, args ...any) {
 	l.log.Error(fmt.Sprintf(format, args...))
 	os.Exit(1)
