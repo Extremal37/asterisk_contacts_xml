@@ -1,6 +1,6 @@
 module github.com/Extremal37/asterisk_contacts_xml
 
-go 1.24.3
+go 1.24
 
 require (
 	github.com/go-sql-driver/mysql v1.9.3
