@@ -47,7 +47,7 @@ func (s *Storage) Contacts(ctx context.Context) ([]entity.ContactDB, error) {
 	// Scan rows and put data to contacts array
 	for rows.Next() {
 		row := entity.ContactDB{}
-		err = rows.Scan(&row)
+		err = rows.Scan(&row.Number, &row.Name)
 		if err != nil {
 			s.log.Warnf("Unable to scan row: %v", err)
 			continue

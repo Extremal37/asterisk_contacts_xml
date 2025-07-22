@@ -5,7 +5,7 @@ import (
 	"github.com/ilyakaznacheev/cleanenv"
 )
 
-// New create an empty Config and return it's pointer
+// New create an empty Config and return its pointer
 func New() *Config {
 	return &Config{}
 }
