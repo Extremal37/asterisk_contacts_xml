@@ -25,7 +25,7 @@ jobs:
       run: go build -o ast_contacts_xml -v ./...
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ast_contacts_xml-binary
-        path: ast_contacts_xml 
+        path: ast_contacts_xml
